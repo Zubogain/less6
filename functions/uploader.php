@@ -33,19 +33,15 @@ function uploader($fileTypesArray, $maxFileSize, $uploadDir)
   {
       
     $originalFileName = $_FILES["file"]["name"][0];
-
     if($_FILES["file"]["name"][0] != "")
     {
       if($_FILES["file"]["error"][0] == UPLOAD_ERR_OK)
       {
-
         $fileName = explode(".", $_FILES["file"]["name"][0]);
         $fileNameExt = $fileName[count($fileName)-1];
         unset($fileName[count($fileName)-1]);
-
         $fileName = implode(".", $fileName);
         $fileName = substr($fileName, 0, 15) . "." . $fileNameExt;
-
           
         if(in_array($fileNameExt, $fileTypesArray))
         {

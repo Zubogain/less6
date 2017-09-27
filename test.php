@@ -37,22 +37,22 @@ if (is_array($testGen))
 </head>
 <body>
   <div class="main">
-  	<div class="test">
-  	  <?php
+    <div class="test">
+      <?php
       if ($testGenResponse != '')
       {
         echo $testGenResponse;
       }
-  	  ?>
-  	  <div class="test-ref">
-  	  	<p>
+      ?>
+      <div class="test-ref">
+        <p>
           <a href="admin.php">загрузить новый тест</a>
         </p>
-  	  	<p>
+        <p>
           <a href="list.php">список тестов</a>
         </p>
-  	  </div>
-  	</div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

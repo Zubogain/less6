@@ -1,5 +1,4 @@
 <?php
-require __DIR__ . '/certGen.php';
 function testGen()
 {
   $buffer = @file_get_contents($_GET['selectedTest']);
@@ -10,7 +9,7 @@ function testGen()
 
     if (сheckCorrectnessTest($buffer))
     {
-	  $form = "<form><p><input type=\"text\" name=\"userName\" placeholder=\"Ваше имя\"></p>";
+	  $form = "<form>";
 	  $i = 0;
 	  foreach ($buffer as $key => $array)
 	  {
@@ -43,16 +42,11 @@ function testGen()
 	    $buffer = json_decode($buffer, true);
 	    if (сheckCorrectnessTest($buffer))
 	    {
-	      $userName = 'Гость';
 	      $correctAnswers = 0;
 		  $wrongAnswers = 0;
 		  $counter = 0;
 		  $questionName = NULL;
 		  $inGeneralQuestions = 0;
-		  if (!empty($_GET['userName']))
-		  {
-		  	$userName = (string) strip_tags($_GET['userName']);
-		  }
 
 		  foreach ($buffer as $key => $array)
 		  {
@@ -77,20 +71,20 @@ function testGen()
 		  }
 		  if ($correctAnswers == 0)
 		  {
-		    return (string) "<h2>Эхх {$userName}, вы ответили на все вопросы неправильно.</h2>";
+		    return (string) "<h2>Эхх, вы ответили на все вопросы неправильно.</h2>";
 		  }
 		  elseif ($wrongAnswers == 0)
 		  {
-		    return (string) "<h2>Поздровляем {$userName}, вы ответили на все вопросы правильно!</h2>" . saveImageCert('././images/originalCert.png', '././fonts/arial.ttf', $userName, '././images/save/', 'userCert.png') . '<div><img src="././images/save/userCert.png"><p><a href="././images/save/userCert.png" download>Скачать!</a></p></div>';
+		    return (string) '<h2>Поздровляем, вы ответили на все вопросы правильно!</h2></div>';
 		  }
 		  elseif ($wrongAnswers != 0 and $correctAnswers == $inGeneralQuestions)
 		  {
-		    return (string) "<h2>Поздровляем {$userName}, вы ответили на все вопросы правильно!</h2>" . saveImageCert('././images/originalCert.png', '././fonts/arial.ttf', $userName, '././images/save/', 'userCert.png') . '<div><img src="././images/save/userCert.png"><p><a href="././images/save/userCert.png" download>Скачать!</a></p></div>';
+		    return (string) '<h2>Поздровляем, вы ответили на все вопросы правильно!</h2></div>';
 
 		  }
 		  else
 		  {
-		    return (string) "<h2>{$userName}, правельных {$correctAnswers} из {$inGeneralQuestions}</h2>";
+		    return (string) "<h2>Правельных {$correctAnswers} из {$inGeneralQuestions}</h2>";
 	      }
 	    }
 	    else

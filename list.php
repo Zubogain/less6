@@ -1,4 +1,4 @@
-<?php 
+<?php
 require __DIR__ . '/functions/scanDirTests.php';
 $testsDir = __DIR__ . '/data/tests';
 
@@ -19,19 +19,19 @@ if (is_string($scanDirTests))
 </head>
 <body>
   <div class="main">
-  	<div class="tests-list">
-  	  <?php
-  	  if ($scanDirTestsResponse != '')
+    <div class="tests-list">
+      <?php
+      if ($scanDirTestsResponse != '')
       {
         echo $scanDirTestsResponse;
       }
-  	  ?>
+      ?>
       <div class="tests-list-ref">
         <p>
           <a href="admin.php">Загрузить тест</a>
         </p>
       </div>
-  	</div>
+    </div>
   </div>
 </body>
 </html>
