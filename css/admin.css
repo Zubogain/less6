@@ -1,0 +1,59 @@
+* {
+	box-sizing: border-box;
+	vertical-align: top;
+	margin: 0;
+}
+
+html {
+	text-align: center;
+	font-size: 62.5%;
+}
+
+body {
+	height: auto;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+
+.main {
+	min-width: 600px;
+	height: auto;
+	vertical-align: top;
+	text-align: center;
+	background: white;
+	font-family: sans-serif, serif;
+}
+
+body, .main, section, article, header {
+  display: block;
+  max-width: 100%;
+}
+
+.upload-files-form {
+	text-align: left;
+	font-size: 2rem;
+	position: absolute;
+    top: 45%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+}
+
+input {
+	padding: 10px 0 10px 0;
+	font-size: 2rem;
+}
+
+.upload-files-form-ref > p {
+	font-size: 2rem;
+	display: inline-block;
+}
+
+.upload-files-form-test-example {
+	margin-top: 20px;
+}
+
+.upload-files-form-test-example > h3 {
+	margin-bottom: 5px;
+}

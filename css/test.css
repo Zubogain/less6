@@ -1,0 +1,56 @@
+* {
+	box-sizing: border-box;
+	vertical-align: top;
+	margin: 0;
+}
+
+html {
+	text-align: center;
+	font-size: 62.5%;
+}
+
+body {
+	height: auto;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+
+.main {
+	min-width: 600px;
+	height: auto;
+	vertical-align: top;
+	text-align: center;
+	background: white;
+	font-family: sans-serif, serif;
+}
+
+body, .main, section, article, header {
+  display: block;
+  max-width: 100%;
+}
+
+.test {
+	padding-top: 50px;
+	font-size: 1.6rem;
+}
+
+.test > form {
+	display: inline-block; /* :-) */
+	text-align: left;
+}
+
+.test-question {
+	display: inline-block;
+	padding: 5px 0 5px 15px;
+}
+
+.test-ref > p {
+	font-size: 2rem;
+	display: inline-block;
+}
+
+.test-ref > p:first-child {
+	margin-right: 10px;
+}
