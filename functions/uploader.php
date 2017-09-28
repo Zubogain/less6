@@ -47,30 +47,21 @@ function uploader($fileTypesArray, $maxFileSize, $uploadDir)
         {
           if($_FILES["file"]["size"][0] < $maxFileSize)
           {
-            $buffer = @file_get_contents($_FILES["file"]["tmp_name"][0]);
-            if ($buffer)
+            if (сheckCorrectnessTest(json_decode($_FILES["file"]["tmp_name"][0], true)))
             {
-              $buffer = json_decode($buffer, true);
-              if (сheckCorrectnessTest($buffer))
+              if(move_uploaded_file($_FILES["file"]["tmp_name"][0], $uploadDir . $fileName))
               {
-                if(move_uploaded_file($_FILES["file"]["tmp_name"][0], $uploadDir . $fileName))
-                {
-                  return array( 303 => "<p>Файл успешно загружен ( {$fileName} ).</p>");
-                }
-                else
-                {
-                  return array( 418 => "<p>{$originalFileName} Загрузка не завершена.</p>");
-                }
+                return array( 303 => "<p>Файл успешно загружен ( {$fileName} ).</p>");
               }
               else
               {
-                unlink($_FILES["file"]["tmp_name"][0]);
-                return array( 418 => '<p>Тест создан неправильно, файл не был загружен.</p>' );
+                return array( 418 => "<p>{$originalFileName} Загрузка не завершена.</p>");
               }
             }
             else
             {
-              return array( 418 => "<p>Ой, что-то пошло не так.</p>");
+              unlink($_FILES["file"]["tmp_name"][0]);
+              return array( 418 => '<p>Тест создан неправильно, файл не был загружен.</p>' );
             }
           }
           else
